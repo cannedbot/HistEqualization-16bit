@@ -12,5 +12,5 @@ Make sure you have a precompiled OpenCV library.
   cmake -G "Visual Studio 16 2019" ..
   
   cmake --build . --config Release
-4. Executable file will be made at build/Release
-5. Copy everything inside build/Release to project folder and run exe
+  4. Executable file will be made at build/Release
+  5. Copy everything inside build/Release to project folder and run exe
