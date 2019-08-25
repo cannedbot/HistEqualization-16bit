@@ -1,11 +1,11 @@
 # HistEqualization-16bit
 
 
-### ** Prerequisites ** <br />
+### Prerequisites <br />
 Uses CMAKE.
 Make sure you have a precompiled OpenCV library.
 
-### ** Usage ** <br />
+### Usage <br />
 1. Clone project
 2. cmd at the root project directory
 3. Run command: cmake -G "Visual Studio 16 2019" ..
