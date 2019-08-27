@@ -15,5 +15,5 @@ using namespace std;
 class HistEqualization
 {
 public:
-	static void equalize16Bit(const cv::Mat& _src, cv::Mat& _dst);
+	static bool equalize16Bit(const cv::Mat& _src, cv::Mat& _dst);
 };

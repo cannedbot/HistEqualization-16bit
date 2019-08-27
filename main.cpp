@@ -14,7 +14,10 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	CommandLineParser parser(argc, argv, "{@input | 16bit_grayscale.TIF | input image}");
+	int channel, depth;
+
+	CommandLineParser parser(argc, argv, "{@input | test-images\\16bit_grayscale.TIF | input image}");
+	
 	Mat src = imread(parser.get<String>("@input"), IMREAD_ANYDEPTH);
 	//cout << "val_org: " << src.channels() << endl;
 
@@ -24,6 +27,17 @@ int main(int argc, char** argv)
 		cout << "Usage: " << argv[0] << " <Input image>" << endl;
 		return -1;
 	}
+
+
+	String type2str(const Mat & img);
+	float  type = src.type();
+	channel = src.elemSize();
+	depth = src.depth();
+
+
+	cout << "Type:" << type << endl;
+	cout << "Channel:" << channel << endl;
+	cout << "Depth:" << depth << endl;
 
 	if (src.depth() == 2)
 	{
@@ -38,15 +52,16 @@ int main(int argc, char** argv)
 		//	int	height = int(src.size().height * scale_percent / 100);
 		//	resize(src, src, cv::Size(width, height));
 
-		cout << "val_resize: " << src.channels() << endl;
+		//cout << "val_resize: " << src.channels() << endl;
 		imwrite("16bit_1ch_grayscale_src.TIF", src);
 		imwrite("16bit_1ch_grayscale_dst.TIF", dst);
-		//	imshow("Ori Image", src);
-		//	imshow("Equalized Image", dst);
-		//	waitKey();
-		//	return 0;
+		imshow("Ori Image", src);
+		imshow("Equalized Image", dst);
+		waitKey();
 		cout << "Press ENTER to quit" << endl;
 		cin.get();
+
+		return 0;
 	}
 	else
 	{
